@@ -653,12 +653,7 @@
     UIViewController *viewControllerWillAppear    = [self viewControllerWillAppearForSuccessfulOperation:operation];
     UIViewController *viewControllerWillDisappear = [self viewControllerWillDisappearForSuccessfulOperation:operation];
     
-    if (canceled) {
-        [viewControllerWillDisappear beginAppearanceTransition:YES animated:_isAnimated];
-        [viewControllerWillDisappear endAppearanceTransition];
-        [viewControllerWillAppear beginAppearanceTransition:NO animated:_isAnimated];
-        [viewControllerWillAppear endAppearanceTransition];
-    } else {
+    if (!canceled) {
         [viewControllerWillDisappear endAppearanceTransition];
         [viewControllerWillAppear endAppearanceTransition];
     }
